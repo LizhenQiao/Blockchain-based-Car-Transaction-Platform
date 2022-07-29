@@ -1,0 +1,112 @@
+[
+  {
+    "id": 0,
+    "vehicle_brand": "BMW",
+    "picture": "images/m2.jpeg",
+    "vehicle_model": "M2",
+    "description": "Talk about M2",
+    "buy_now_price": 40,
+    "starting_price": 20,
+    "min_incr": 2,
+    "auction_price": 20
+  },
+  {
+    "id": 1,
+    "vehicle_brand": "Mercedes",
+    "picture": "images/GTR.jpeg",
+    "vehicle_model": "GTR",
+    "description": "Talk about GTR",
+    "buy_now_price": 400,
+    "starting_price": 200,
+    "min_incr": 20,
+    "auction_price": 200
+  },
+  {
+    "id": 2,
+    "vehicle_brand": "Honda",
+    "picture": "images/type.jpeg",
+    "vehicle_model": "Civic Type-R",
+    "description": "Talk about M2",
+    "buy_now_price": 300,
+    "starting_price": 150,
+    "min_incr": 35,
+    "auction_price": 150
+  },
+  {
+    "id": 3,
+    "vehicle_brand": "Volkswagen",
+    "picture": "images/gti.jpeg",
+    "vehicle_model": "Golf gti",
+    "description": "Talk about Golf gti",
+    "buy_now_price": 300,
+    "starting_price": 150,
+    "min_incr": 35,
+    "auction_price": 150
+  },
+  {
+    "id": 4,
+    "vehicle_brand": "BMW",
+    "picture": "images/m3.jpeg",
+    "vehicle_model": "M3",
+    "description": "Talk about M3",
+    "buy_now_price": 40,
+    "starting_price": 20,
+    "min_incr": 2,
+    "auction_price": 20
+  },
+  {
+    "id": 5,
+    "vehicle_brand": "Mercedes",
+    "picture": "images/c63.jpeg",
+    "vehicle_model": "M2",
+    "description": "Talk about c63",
+    "buy_now_price": 400,
+    "starting_price": 200,
+    "min_incr": 20,
+    "auction_price": 200
+  },
+  {
+    "id": 6,
+    "vehicle_brand": "Honda",
+    "picture": "images/s2000.jpeg",
+    "vehicle_model": "s2000",
+    "description": "Talk about s2000",
+    "buy_now_price": 300,
+    "starting_price": 150,
+    "min_incr": 35,
+    "auction_price": 150
+  },
+  {
+    "id": 7,
+    "vehicle_brand": "Volkswagen",
+    "picture": "images/r.jpeg",
+    "vehicle_model": "Golf r",
+    "description": "Talk about Golf r",
+    "buy_now_price": 300,
+    "starting_price": 150,
+    "min_incr": 35,
+    "auction_price": 150
+  },
+  {
+    "id": 8,
+    "vehicle_brand": "Ford",
+    "picture": "images/f150.jpeg",
+    "vehicle_model": "f150",
+    "description": "Talk about f150",
+    "buy_now_price": 300,
+    "starting_price": 150,
+    "min_incr": 35,
+    "auction_price": 150
+  },
+  {
+    "id": 9,
+    "vehicle_brand": "Ram",
+    "picture": "images/1500.jpeg",
+    "vehicle_model": "1500",
+    "description": "Talk about 1500",
+    "buy_now_price": 300,
+    "starting_price": 150,
+    "min_incr": 35,
+    "auction_price": 150
+  }
+]
