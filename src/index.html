@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Auto shop</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/app.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/app.css" />
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    /> -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,124 +26,227 @@
   </head>
   <body>
     <div class="container">
-        <br>
-        <div class="row">
-            <div class="header">
-                <img src="images/Logo.png" alt="logo">
-                <strong class="text-center">Number Of Success Purchase: </strong><span class="num-purchase">?</span>
-            </div>
+      <br />
+      <div class="row">
+        <div class="header">
+          <img src="images/Logo.png" alt="logo" />
+          <strong class="text-center">Number Of Success Purchase: </strong
+          ><span class="num-purchase">?</span>
         </div>
-        <br>
+      </div>
+      <br />
 
-        <div id="carRow" class="row">
-            <div class="input-group">
-                
-                
-
-                <div class="search">
-                  <input type="text" class="form-control" id="search" placeholder="Search brand or model here" name="s" autocomplete="off" autofocus>
-                  <div class="search__icon">
-                    <ion-icon name="search"></ion-icon>
-                  </div>
-                </div>
-                
-                <div class="input-group-btn">
-                    <button type="button" class="btn btn-primary dropdown-toggle" id="dropdownMenuButton"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Brand Filter
-                      <ion-icon name="caret-down-outline"></ion-icon>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-select">
-                        <li>
-                            <label class="dropdown-radio" for="radio1">
-                            <input type="radio" class="form-check-input" id="radio1" name="optradio" value="BMW">
-                            <i>BMW</i>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="dropdown-radio" for="radio2">
-                            <input type="radio" class="form-check-input" id="radio2" name="optradio" value="Mercedes">
-                            <i>Mercedes</i>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="dropdown-radio" for="radio3">
-                            <input type="radio" class="form-check-input" id="radio3" name="optradio" value="Honda">
-                            <i>Honda</i>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="dropdown-radio" for="radio4">
-                            <input type="radio" class="form-check-input" id="radio4" name="optradio" value="Volkswagen">
-                            <i>Volkswagen</i>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="dropdown-radio" for="radio5">
-                            <input type="radio" class="form-check-input" id="radio5" name="optradio" value="Ford">
-                            <i>Ford</i>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="dropdown-radio" for="radio6">
-                            <input type="radio" class="form-check-input" id="radio6" name="optradio" value="Ram">
-                            <i>Ram</i>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="dropdown-radio" for="radio7">
-                            <input type="radio" class="form-check-input" id="radio7" name="optradio" value="">
-                            <p>All</p>
-                            </label>
-                        </li>
-                                            
-                    </ul>
-                </div>
+      <div id="carRow" class="row">
+        <div class="input-group">
+          <div class="search">
+            <input
+              type="text"
+              class="form-control"
+              id="search"
+              placeholder="Search brand or model here"
+              name="s"
+              autocomplete="off"
+              autofocus
+            />
+            <div class="search__icon">
+              <ion-icon name="search"></ion-icon>
             </div>
-            <br>
+          </div>
 
-            <div id="kaho"></div>
+          <div class="input-group-btn">
+            <button
+              type="button"
+              class="btn btn-primary dropdown-toggle"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Brand Filter
+              <ion-icon name="caret-down-outline"></ion-icon>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-select">
+              <li>
+                <label class="dropdown-radio" for="radio1">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="radio1"
+                    name="optradio"
+                    value="BMW"
+                  />
+                  <i>BMW</i>
+                </label>
+              </li>
+              <li>
+                <label class="dropdown-radio" for="radio2">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="radio2"
+                    name="optradio"
+                    value="Mercedes"
+                  />
+                  <i>Mercedes</i>
+                </label>
+              </li>
+              <li>
+                <label class="dropdown-radio" for="radio3">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="radio3"
+                    name="optradio"
+                    value="Honda"
+                  />
+                  <i>Honda</i>
+                </label>
+              </li>
+              <li>
+                <label class="dropdown-radio" for="radio4">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="radio4"
+                    name="optradio"
+                    value="Volkswagen"
+                  />
+                  <i>Volkswagen</i>
+                </label>
+              </li>
+              <li>
+                <label class="dropdown-radio" for="radio5">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="radio5"
+                    name="optradio"
+                    value="Ford"
+                  />
+                  <i>Ford</i>
+                </label>
+              </li>
+              <li>
+                <label class="dropdown-radio" for="radio6">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="radio6"
+                    name="optradio"
+                    value="Ram"
+                  />
+                  <i>Ram</i>
+                </label>
+              </li>
+              <li>
+                <label class="dropdown-radio" for="radio7">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="radio7"
+                    name="optradio"
+                    value=""
+                  />
+                  <p>All</p>
+                </label>
+              </li>
+            </ul>
+          </div>
         </div>
+        <br />
+
+        <div id="kaho"></div>
+      </div>
     </div>
-    
-    <div id="carTemplate" style="display: none;">
-      
+
+    <div id="carTemplate" style="display: none">
       <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="panel panel-primary panel-pet">
           <div class="panel-heading">
             <h3 class="panel-title">Scrappy</h3>
           </div>
           <div class="panel-body">
-            <img alt="140x140" data-src="holder.js/140x140" class="img-rounded img-center" style="width: 100%;" src="https://animalso.com/wp-content/uploads/2017/01/Golden-Retriever_6.jpg" data-holder-rendered="true">
-            <br>
-            <br>
-              <strong>Highest Offer: </strong><span class="highest-bid"></span>
-              <br>
-              <strong>Highest Offer Account: </strong><span class="highest-account" width = "Auto">No Offer</span>
-              <br>
-              <br>
-              <strong>Starting Price: </strong><span class="starting_price"></span>
-              <br>   
-              <strong>Minimum Increment: </strong><span class="min_incr"></span>
-              <br>             
-              <strong>Buy-Now Price: </strong><span class="buy_now_price"></span>
-              <br>
-              <br>
-            <strong>Vehicle Brand</strong>: <span class="vehicle_brand">No Brand</span><br/>
-            <strong>Vehicle Model</strong>: <span class="vehicle_model">No Model</span><br/>
-            <strong>Vehicle description</strong>: <span class="description">No Description</span><br/><br/>
+            <img
+              alt="140x140"
+              data-src="holder.js/140x140"
+              class="img-rounded img-center"
+              style="width: 100%"
+              src="https://animalso.com/wp-content/uploads/2017/01/Golden-Retriever_6.jpg"
+              data-holder-rendered="true"
+            />
+            <br />
+            <br />
+            <strong>Highest Offer: </strong><span class="highest-bid"></span>
+            <br />
+            <strong>Highest Offer Account: </strong
+            ><span class="highest-account" width="Auto">No Offer</span>
+            <br />
+            <br />
+            <strong>Starting Price: </strong
+            ><span class="starting_price"></span>
+            <br />
+            <strong>Minimum Increment: </strong><span class="min_incr"></span>
+            <br />
+            <strong>Buy-Now Price: </strong><span class="buy_now_price"></span>
+            <br />
+            <br />
+            <strong>Vehicle Brand</strong>:
+            <span class="vehicle_brand">No Brand</span><br />
+            <strong>Vehicle Model</strong>:
+            <span class="vehicle_model">No Model</span><br />
+            <strong>Vehicle description</strong>:
+            <span class="description">No Description</span><br /><br />
             <div class="search">
-              <input type="number" class="form-control ipt-amt" placeholder="Offer Amount" min="0.00" name="bid" step = "1">
+              <input
+                type="number"
+                class="form-control ipt-amt"
+                placeholder="Offer Amount"
+                min="0.00"
+                name="bid"
+                step="1"
+              />
               <div class="search__icon">
                 <ion-icon name="logo-usd"></ion-icon>
               </div>
             </div>
-            <button class="btn btn-primary btn-submit" type="button" data-id = "0">Submit My Offer</button>
-            <br>
-            <button class="btn btn-primary btn-buy" type="button" data-id = "0">Buy it now</button>
+            <button
+              class="btn btn-primary btn-submit"
+              type="button"
+              data-id="0"
+            >
+              Submit My Offer
+            </button>
+            <br />
+            <button class="btn btn-primary btn-buy" type="button" data-id="0">
+              Buy it now
+            </button>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- <div class="card" style="width: 18rem">
+      <img
+        src="https://animalso.com/wp-content/uploads/2017/01/Golden-Retriever_6.jpg"
+        class="card-img-top"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+      </ul>
+      <div class="card-body">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div> -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -146,7 +255,15 @@
     <script src="js/web3.min.js"></script>
     <script src="js/truffle-contract.js"></script>
     <script src="js/app.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script> -->
+  </body>
   </body>
 </html>
