@@ -18,6 +18,7 @@ contract Adoption {
     uint256 public itemId = 0;
     mapping(uint256 => Item) public vehicles; // item hash table
     mapping(uint256 => address) public highestOfferers; // highest bidders hash table
+    mapping(uint256 => uint256) public likesForItems; // likes for cars hash table
     event offerPlacement(uint256 _vehicleId, uint256 indexed _offerAmount); // Declaring events which help us use ethereum's logging facility
 
     function addItem(
@@ -39,6 +40,7 @@ contract Adoption {
             offer_price
         );
         highestOfferers[itemId] = address(0);
+        likesForItems[itemId] = 0;
         itemId++;
     }
 
@@ -66,6 +68,25 @@ contract Adoption {
     // Retrieving the adopters
     function getAdopters() public view returns (address[16] memory) {
         return buyers;
+    }
+
+    function addLike(uint256 itemId) public returns (uint256) {
+        require(itemId >= 0 && itemId <= carCount, "Liked item does not exit.");
+        likesForItems[itemId] = likesForItems[itemId] + 1;
+        return likesForItems[itemId];
+    }
+
+    function getAllLikes() public view returns (uint256[carCount] memory) {
+        uint256[carCount] memory result;
+        for (uint256 i = 0; i < carCount; i++) {
+            result[i] = likesForItems[i];
+        }
+        return result;
+    }
+
+    function getLikeById(uint256 itemId) public view returns (uint256) {
+        require(itemId >= 0 && itemId < carCount, "Get like item does not exist.");
+        return likesForItems[itemId];
     }
 
     function getNumOfPurchase() public view returns (uint256) {

@@ -25,6 +25,8 @@ App = {
             .text(`ETH ${data[i].starting_price}`); // base price
           carTemplate.find(".btn-buy").attr("data-id", data[i].id);
           carTemplate.find(".btn-submit").attr("data-id", data[i].id);
+          carTemplate.find(".btn-like").attr("data-id", data[i].id);
+          carTemplate.find(".likes").text(`${data[i].likes} likes`);
 
           // Creating identifier attributes for HTML elements
           carTemplate.find(".highest-bid").attr("data-id", data[i].id); // adding attribute to the highest bid so we can dynamically change it
@@ -52,8 +54,11 @@ App = {
             carTemplate
               .find(".starting_price")
               .text(`ETH ${data[i].starting_price}`); // base price
+            carTemplate.find(".likes").text(`${data[i].likes} likes`);
+            
             carTemplate.find(".btn-buy").attr("data-id", data[i].id);
             carTemplate.find(".btn-submit").attr("data-id", data[i].id);
+            carTemplate.find(".btn-like").attr("data-id", data[i].id);
 
             // Creating identifier attributes for HTML elements
             carTemplate.find(".highest-bid").attr("data-id", data[i].id); // adding attribute to the highest bid so we can dynamically change it
@@ -131,7 +136,72 @@ App = {
   bindEvents: function () {
     $(document).on("click", ".btn-buy", App.handlePurchase);
     $(document).on("click", ".btn-submit", App.handleNewOffer);
+    $(document).on("click", ".btn-like", App.handleLike);
   },
+
+  // Add like to one car
+  handleLike: function(event){
+    event.preventDefault();
+
+    var carId = parseInt($(event.target).data("id"));
+    var likeInstance;
+
+    web3.eth.getAccounts(function (error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      var account = accounts[0];
+      App.contracts.Adoption.deployed()
+      .then(function (instance) {
+        likeInstance = instance;
+        return likeInstance.addLike(carId, { from: account });
+      })
+      .then(function (result) {
+        return App.updateLikes(carId);
+      })
+      .catch(function (err) {
+        console.log(err.message);
+      });
+      
+    });
+
+  },
+
+  // get likes by car id
+  updateLikes: function (carId) {
+    var likeInstance;
+    App.contracts.Adoption.deployed()
+      .then(function (instance) {
+        likeInstance = instance;
+        
+        return likeInstance.getLikeById(carId);
+      })
+      .then(function (likenum) {
+        console.log(likenum);
+        $(document).find(".likes").eq(carId).text(`${likenum} likes`);
+      })
+      .catch(function (err) {
+        console.log(err.message);
+      });
+  },
+
+  // updateAllLikes: function () {
+  //   var offerInstance;
+  //   App.contracts.Adoption.deployed()
+  //     .then(function (instance) {
+  //       offerInstance = instance;
+  //       return offerInstance.getAllLikes.call();
+  //     })
+  //     .then(function (result) {
+  //       for (j = 0; j < result.length; j++) {
+  //         $(document).find(".likes").eq(j).text(`ALL Likes ${result[j]}`);
+  //       }
+  //     })
+  //     .catch(function (err) {
+  //       console.log(err.message);
+  //     });
+  // },
 
   markPurchase: function () {
     var adoptionInstance;
