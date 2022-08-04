@@ -55,7 +55,7 @@ App = {
               .find(".starting_price")
               .text(`ETH ${data[i].starting_price}`); // base price
             carTemplate.find(".likes").text(`${data[i].likes} likes`);
-            
+
             carTemplate.find(".btn-buy").attr("data-id", data[i].id);
             carTemplate.find(".btn-submit").attr("data-id", data[i].id);
             carTemplate.find(".btn-like").attr("data-id", data[i].id);
@@ -140,7 +140,7 @@ App = {
   },
 
   // Add like to one car
-  handleLike: function(event){
+  handleLike: function (event) {
     event.preventDefault();
 
     var carId = parseInt($(event.target).data("id"));
@@ -153,19 +153,17 @@ App = {
 
       var account = accounts[0];
       App.contracts.Adoption.deployed()
-      .then(function (instance) {
-        likeInstance = instance;
-        return likeInstance.addLike(carId, { from: account });
-      })
-      .then(function (result) {
-        return App.updateLikes(carId);
-      })
-      .catch(function (err) {
-        console.log(err.message);
-      });
-      
+        .then(function (instance) {
+          likeInstance = instance;
+          return likeInstance.addLike(carId, { from: account });
+        })
+        .then(function (result) {
+          return App.updateLikes(carId);
+        })
+        .catch(function (err) {
+          console.log(err.message);
+        });
     });
-
   },
 
   // get likes by car id
@@ -174,7 +172,7 @@ App = {
     App.contracts.Adoption.deployed()
       .then(function (instance) {
         likeInstance = instance;
-        
+
         return likeInstance.getLikeById(carId);
       })
       .then(function (likenum) {
