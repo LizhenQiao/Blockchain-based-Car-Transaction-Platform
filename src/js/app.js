@@ -8,68 +8,62 @@ App = {
     $.getJSON("../cars.json", function (data) {
       console.log(obj);
       var carRow = $("#carRow");
-      var carTemplate = $("#carTemplate");
+      var cardFrame = $("#cardFrame");
       for (i = 0; i < data.length; i++) {
         if (obj == null) {
-          carTemplate.find(".panel-title").text(`Vehicle ${i + 1}`); // auction number as title
-          carTemplate.find("img").attr("src", data[i].picture); // image
-          carTemplate.find(".vehicle_brand").text(data[i].vehicle_brand); // name of item
-          carTemplate.find(".vehicle_model").text(data[i].vehicle_model); // name of item
-          carTemplate
-            .find(".buy_now_price")
-            .text(`ETH ${data[i].buy_now_price}`); // name of item
-          carTemplate.find(".description").text(data[i].description); // decription of the item
-          carTemplate.find(".min_incr").text(`ETH ${data[i].min_incr}`); // minimum increment
-          carTemplate
+          cardFrame.find(".panel-title").text(`Vehicle ${i + 1}`); // auction number as title
+          cardFrame.find("img").attr("src", data[i].picture); // image
+          cardFrame.find(".card-text").text(data[i].description);
+          cardFrame.find(".vehicle_brand").text(data[i].vehicle_brand); // name of item
+          cardFrame.find(".vehicle_model").text(data[i].vehicle_model); // name of item
+          cardFrame.find(".buy_now_price").text(`ETH ${data[i].buy_now_price}`); // name of item
+          cardFrame.find(".min_incr").text(`ETH ${data[i].min_incr}`); // minimum increment
+          cardFrame
             .find(".starting_price")
             .text(`ETH ${data[i].starting_price}`); // base price
-          carTemplate.find(".btn-buy").attr("data-id", data[i].id);
-          carTemplate.find(".btn-submit").attr("data-id", data[i].id);
-          carTemplate.find(".btn-like").attr("data-id", data[i].id);
-          carTemplate.find(".likes").text(`${data[i].likes} likes`);
+          cardFrame.find(".btn-buy").attr("data-id", data[i].id);
+          cardFrame.find(".btn-submit").attr("data-id", data[i].id);
+          cardFrame.find(".btn-like").attr("data-id", data[i].id);
+          cardFrame.find(".likes").text(`${data[i].likes} likes`);
 
           // Creating identifier attributes for HTML elements
-          carTemplate.find(".highest-bid").attr("data-id", data[i].id); // adding attribute to the highest bid so we can dynamically change it
-          carTemplate.find(".btn-submit").attr("data-id", data[i].id); // adding attribute for submit so we can associate itemids to submit buttons
-          carTemplate.find(".ipt-amt").attr("id", `input-amt-${data[i].id}`); // same as above for input amount
-          carTemplate.find(".ipt-amt").attr("step", `${data[i].min_incr}`); // same as above for input amount
-          carTemplate.find(".ipt-amt").attr("min", `${data[i].starting_price}`); // same as above for input amount
-          $("#kaho").append(carTemplate.html());
+          cardFrame.find(".highest-bid").attr("data-id", data[i].id); // adding attribute to the highest bid so we can dynamically change it
+          cardFrame.find(".btn-submit").attr("data-id", data[i].id); // adding attribute for submit so we can associate itemids to submit buttons
+          cardFrame.find(".ipt-amt").attr("id", `input-amt-${data[i].id}`); // same as above for input amount
+          cardFrame.find(".ipt-amt").attr("step", `${data[i].min_incr}`); // same as above for input amount
+          cardFrame.find(".ipt-amt").attr("min", `${data[i].starting_price}`); // same as above for input amount
+          $(".card-area").append(cardFrame.html());
         } else {
-          if (
-            data[i].vehicle_brand.toUpperCase().indexOf(obj.toUpperCase()) !==
-              -1 ||
-            data[i].vehicle_model.toUpperCase().indexOf(obj.toUpperCase()) !==
-              -1
-          ) {
-            carTemplate.find(".panel-title").text(`Vehicle ${i + 1}`); // auction number as title
-            carTemplate.find("img").attr("src", data[i].picture); // image
-            carTemplate.find(".vehicle_brand").text(data[i].vehicle_brand); // name of item
-            carTemplate.find(".vehicle_model").text(data[i].vehicle_model); // name of item
-            carTemplate
+          if (data[i].vehicle_brand.toUpperCase() == obj.toUpperCase()) {
+            console.log(obj.toUpperCase());
+            console.log(data[i].vehicle_brand.toUpperCase());
+
+            cardFrame.find(".panel-title").text(`Vehicle ${i + 1}`); // auction number as title
+            cardFrame.find("img").attr("src", data[i].picture); // image
+            cardFrame.find(".card-text").text(data[i].description);
+            cardFrame.find(".vehicle_brand").text(data[i].vehicle_brand); // name of item
+            cardFrame.find(".vehicle_model").text(data[i].vehicle_model); // name of item
+            cardFrame
               .find(".buy_now_price")
               .text(`ETH ${data[i].buy_now_price}`); // name of item
-            carTemplate.find(".description").text(data[i].description); // decription of the item
-            carTemplate.find(".min_incr").text(`ETH ${data[i].min_incr}`); // minimum increment
-            carTemplate
+            cardFrame.find(".min_incr").text(`ETH ${data[i].min_incr}`); // minimum increment
+            cardFrame
               .find(".starting_price")
               .text(`ETH ${data[i].starting_price}`); // base price
-            carTemplate.find(".likes").text(`${data[i].likes} likes`);
+            cardFrame.find(".likes").text(`${data[i].likes} likes`);
 
-            carTemplate.find(".btn-buy").attr("data-id", data[i].id);
-            carTemplate.find(".btn-submit").attr("data-id", data[i].id);
-            carTemplate.find(".btn-like").attr("data-id", data[i].id);
+            cardFrame.find(".btn-buy").attr("data-id", data[i].id);
+            cardFrame.find(".btn-submit").attr("data-id", data[i].id);
+            cardFrame.find(".btn-like").attr("data-id", data[i].id);
 
             // Creating identifier attributes for HTML elements
-            carTemplate.find(".highest-bid").attr("data-id", data[i].id); // adding attribute to the highest bid so we can dynamically change it
-            carTemplate.find(".btn-submit").attr("data-id", data[i].id); // adding attribute for submit so we can associate itemids to submit buttons
-            carTemplate.find(".ipt-amt").attr("id", `input-amt-${data[i].id}`); // same as above for input amount
-            carTemplate.find(".ipt-amt").attr("step", `${data[i].min_incr}`); // same as above for input amount
-            carTemplate
-              .find(".ipt-amt")
-              .attr("min", `${data[i].starting_price}`); // same as above for input amount
-            $("#kaho").append(carTemplate.html());
-            // console.log(carTemplate.html())
+            cardFrame.find(".highest-bid").attr("data-id", data[i].id); // adding attribute to the highest bid so we can dynamically change it
+            cardFrame.find(".btn-submit").attr("data-id", data[i].id); // adding attribute for submit so we can associate itemids to submit buttons
+            cardFrame.find(".ipt-amt").attr("id", `input-amt-${data[i].id}`); // same as above for input amount
+            cardFrame.find(".ipt-amt").attr("step", `${data[i].min_incr}`); // same as above for input amount
+            cardFrame.find(".ipt-amt").attr("min", `${data[i].starting_price}`); // same as above for input amount
+            console.log(1);
+            $(".card-area").append(cardFrame.html());
           }
         }
       }
@@ -213,11 +207,12 @@ App = {
       .then(function (adopters) {
         for (i = 0; i < adopters.length; i++) {
           if (adopters[i] !== "0x0000000000000000000000000000000000000000") {
-            $(".panel-pet")
+            $(".card").eq(i).find("button").attr("disabled", true);
+            $(".card").eq(i).find("input").val("");
+            $(".card")
               .eq(i)
-              .find("button")
-              .text("Sold")
-              .attr("disabled", true);
+              .find("input")
+              .attr("placeholder", "This item has been sold");
           }
         }
       })
@@ -344,18 +339,15 @@ $(function () {
   });
 });
 
-$("#search")
-  .eq(0)
-  .bind("input propertychange", function (e) {
-    console.log($(this).val());
-    if ($(this).val() !== "undefined") {
-      $("#kaho .col-sm-6").remove();
-      App.init($(this).val());
-    }
-  });
+$("#search").keypress(function (e) {
+  if (e.which == 13) {
+    $(".card-area").empty();
+    App.init($(this).val());
+  }
+});
 
 $('input:radio[name="optradio"]').click(function () {
-  $("#kaho .col-sm-6").remove();
+  $(".card-area").empty();
   var checkValue = $('input:radio[name="optradio"]:checked').val();
   App.init(checkValue);
 });
