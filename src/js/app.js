@@ -349,5 +349,5 @@ $("#search").keypress(function (e) {
 $('input:radio[name="optradio"]').click(function () {
   $(".card-area").empty();
   var checkValue = $('input:radio[name="optradio"]:checked').val();
-  App.init(checkValue);
+  App.init(checkValue !== "" ? checkValue : null);
 });
