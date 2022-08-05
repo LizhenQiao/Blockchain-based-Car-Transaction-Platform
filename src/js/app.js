@@ -342,7 +342,7 @@ $(function () {
 $("#search").keypress(function (e) {
   if (e.which == 13) {
     $(".card-area").empty();
-    App.init($(this).val());
+    App.init($(this).val() !== "" ? $(this).val() : null);
   }
 });
 
