@@ -119,18 +119,6 @@
       "min_incr": 20,
       "auction_price": 150,
       "likes": 0
-    },
-    {
-      "picture": "images/subaru_forester.png",
-      "vehicle_brand": "subaru",
-      "vehicle_model": "forester",
-      "description": "good suv",
-      "buy_now_price": 100,
-      "starting_price": 100,
-      "min_incr": 5,
-      "auction_price": 100,
-      "likes": 0,
-      "id": 10
     }
   ]
 }
