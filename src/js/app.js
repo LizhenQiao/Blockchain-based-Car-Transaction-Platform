@@ -2,6 +2,21 @@ App = {
   web3Provider: null,
   contracts: {},
   account: "0x0000000000000000000000000000000000000000",
+  images: [
+    "images/toyota_rav4.png",
+    "images/toyota_highlander.png",
+    "images/toyota_corolla.png",
+    "images/toyota_camry.png",
+    "images/honda_crv.png",
+    "images/honda_pilot.png",
+    "images/honda_civic.png",
+    "images/honda_accord.png",
+    "images/mazda_3.png",
+    "images/mazda_cx50.png",
+    "images/subaru_forester.png",
+    "images/subaru_outback.png",
+  ],
+  cart: new Set(),
 
   // Render the page.
   init: async function (obj) {
@@ -27,6 +42,7 @@ App = {
           cardFrame.find(".likes").text(`${data[i].likes} likes`);
 
           // Creating identifier attributes for HTML elements
+          cardFrame.find(".btn-addCart").attr("data-id", data[i].id);
           cardFrame.find(".highest-bid").attr("data-id", data[i].id); // adding attribute to the highest bid so we can dynamically change it
           cardFrame.find(".btn-submit").attr("data-id", data[i].id); // adding attribute for submit so we can associate itemids to submit buttons
           cardFrame.find(".ipt-amt").attr("id", `input-amt-${data[i].id}`); // same as above for input amount
@@ -131,6 +147,8 @@ App = {
     $(document).on("click", ".btn-submit", App.handleNewOffer);
     $(document).on("click", ".btn-like", App.handleLike);
     $(document).on("submit", ".addnew-form", App.handleAddNew);
+    $(document).on("click", ".btn-addCart", App.handleAddCart);
+    $(document).on("click", ".cart-button", App.showCart);
   },
 
   // Add like to one car
@@ -336,7 +354,6 @@ App = {
   // Due to backend limit, maximum of adding is 10.
   handleAddNew: function (event) {
     event.preventDefault();
-    web3.eth.defaultAccount = web3.eth.accounts[0];
     const data = new FormData(event.target);
     var object = {};
     data.forEach(function (value, key) {
@@ -353,26 +370,62 @@ App = {
       object["id"] = data.cars.length;
     });
     console.log(object);
-    App.contracts.Adoption.deployed()
-      .then(function (instance) {
-        adoptionInstance = instance;
-        return adoptionInstance.addItem(
-          object["vehicle_brand"],
-          object["vehicle_model"],
-          object["description"],
-          object["buy_now_price"],
-          object["starting_price"],
-          object["min_incr"],
-          object["starting_price"]
-        );
-      })
-      .then(async function (res) {
-        console.log(res);
-        return await axios.post("http://localhost:4000/cars", object);
-      })
-      .then(() => {
-        window.location.replace("index.html");
-      });
+    web3.eth.getAccounts(function (error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      var account = accounts[0];
+      App.contracts.Adoption.deployed()
+        .then(function (instance) {
+          adoptionInstance = instance;
+          return adoptionInstance.addItem(
+            object["vehicle_brand"],
+            object["vehicle_model"],
+            object["description"],
+            object["buy_now_price"],
+            object["starting_price"],
+            object["min_incr"],
+            object["starting_price"],
+            { from: account }
+          );
+        })
+        .then(async function (res) {
+          console.log(res);
+          return await axios.post("http://localhost:4000/cars", object);
+        })
+        .then(() => {
+          window.location.replace("index.html");
+        });
+    });
+  },
+
+  handleAddCart: function (event) {
+    event.preventDefault();
+    const cardId = parseInt($(event.target).data("id"));
+    // console.log(carId);
+    App.cart.add(App.images[cardId]);
+    console.log(App.cart);
+  },
+
+  showCart: function (event) {
+    event.preventDefault();
+
+    $(".cart-button").css("display", "none");
+
+    let cartItem = $("#cartItem");
+    console.log(App.cart);
+    App.cart.forEach((imagePath) => {
+      cartItem.find(".picCar").attr("src", imagePath);
+      cartItem.find(".picCar").css("width", "160px");
+      cartItem.find(".picCar").css("height", "160px");
+      $(".cart-content").append(cartItem.html());
+    });
+
+    setTimeout(() => {
+      $(".cart-content").css("display", "none");
+      $(".cart-button").css("display", "block");
+    }, 5000);
   },
 };
 
