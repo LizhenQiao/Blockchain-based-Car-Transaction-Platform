@@ -1,122 +1,124 @@
-[
-  {
-    "id": 0,
-    "vehicle_brand": "Lamborghini",
-    "picture": "images/aventador.jpg",
-    "vehicle_model": "aventador",
-    "description": "Descriptions of aventador",
-    "buy_now_price": 300,
-    "starting_price": 150,
-    "min_incr": 10,
-    "auction_price": 150,
-    "likes": 0
-  },
-  {
-    "id": 1,
-    "vehicle_brand": "Porsche",
-    "picture": "images/911.jpg",
-    "vehicle_model": "911",
-    "description": "Descriptions of 911",
-    "buy_now_price": 200,
-    "starting_price": 120,
-    "min_incr": 8,
-    "auction_price": 120,
-    "likes": 0
-  },
-  {
-    "id": 2,
-    "vehicle_brand": "Audi",
-    "picture": "images/a8.jpg",
-    "vehicle_model": "a8",
-    "description": "Descriptions of a8",
-    "buy_now_price": 180,
-    "starting_price": 100,
-    "min_incr": 7,
-    "auction_price": 100,
-    "likes": 0
-  },
-  {
-    "id": 3,
-    "vehicle_brand": "VW",
-    "picture": "images/beetle.jpg",
-    "vehicle_model": "beetle",
-    "description": "Descriptions of beetle",
-    "buy_now_price": 20,
-    "starting_price": 10,
-    "min_incr": 1,
-    "auction_price": 10,
-    "likes": 0
-  },
-  {
-    "id": 4,
-    "vehicle_brand": "Toyota",
-    "picture": "images/camry.jpg",
-    "vehicle_model": "camry",
-    "description": "Descriptions of camry",
-    "buy_now_price": 22,
-    "starting_price": 10,
-    "min_incr": 1,
-    "auction_price": 10,
-    "likes": 0
-  },
-  {
-    "id": 5,
-    "vehicle_brand": "Porsche",
-    "picture": "images/cayenne.jpg",
-    "vehicle_model": "cayenne",
-    "description": "Descriptions of cayenne",
-    "buy_now_price": 170,
-    "starting_price": 100,
-    "min_incr": 5,
-    "auction_price": 100,
-    "likes": 0
-  },
-  {
-    "id": 6,
-    "vehicle_brand": "Honda",
-    "picture": "images/civic.jpg",
-    "vehicle_model": "civic",
-    "description": "Descriptions of civic",
-    "buy_now_price": 15,
-    "starting_price": 5,
-    "min_incr": 1,
-    "auction_price": 15,
-    "likes": 0
-  },
-  {
-    "id": 7,
-    "vehicle_brand": "Telsa",
-    "picture": "images/modelx.jpg",
-    "vehicle_model": "modelx",
-    "description": "Descriptions of modelx",
-    "buy_now_price": 200,
-    "starting_price": 110,
-    "min_incr": 6,
-    "auction_price": 110,
-    "likes": 0
-  },
-  {
-    "id": 8,
-    "vehicle_brand": "Dodge",
-    "picture": "images/challenger.jpg",
-    "vehicle_model": "challenger",
-    "description": "Descriptions of challenger",
-    "buy_now_price": 150,
-    "starting_price": 60,
-    "min_incr": 3,
-    "auction_price": 60,
-    "likes": 0
-  },
-  {
-    "id": 9,
-    "vehicle_brand": "Bentley",
-    "picture": "images/continental.jpg",
-    "vehicle_model": "continental",
-    "description": "Descriptions of continental",
-    "buy_now_price": 400,
-    "starting_price": 150,
-    "min_incr": 20,
-    "auction_price": 150,
-    "likes": 0
-  }
-]
+{
+  "cars": [
+    {
+      "id": 0,
+      "vehicle_brand": "Toyota",
+      "picture": "images/toyota_rav4.png",
+      "vehicle_model": "Rav4",
+      "description": "Descriptions of Rav4",
+      "buy_now_price": 300,
+      "starting_price": 150,
+      "min_incr": 10,
+      "auction_price": 150,
+      "likes": 0
+    },
+    {
+      "id": 1,
+      "vehicle_brand": "Toyota",
+      "picture": "images/toyota_highlander.png",
+      "vehicle_model": "Highlander",
+      "description": "Descriptions of Highlander",
+      "buy_now_price": 200,
+      "starting_price": 120,
+      "min_incr": 8,
+      "auction_price": 120,
+      "likes": 0
+    },
+    {
+      "id": 2,
+      "vehicle_brand": "Toyota",
+      "picture": "images/toyota_corolla.png",
+      "vehicle_model": "Corolla",
+      "description": "Descriptions of Corolla",
+      "buy_now_price": 180,
+      "starting_price": 100,
+      "min_incr": 7,
+      "auction_price": 100,
+      "likes": 0
+    },
+    {
+      "id": 3,
+      "vehicle_brand": "Toyota",
+      "picture": "images/toyota_camry.png",
+      "vehicle_model": "Camry",
+      "description": "Descriptions of Camry",
+      "buy_now_price": 20,
+      "starting_price": 10,
+      "min_incr": 1,
+      "auction_price": 10,
+      "likes": 0
+    },
+    {
+      "id": 4,
+      "vehicle_brand": "Honda",
+      "picture": "images/honda_crv.png",
+      "vehicle_model": "Crv",
+      "description": "Descriptions of Crv",
+      "buy_now_price": 22,
+      "starting_price": 10,
+      "min_incr": 1,
+      "auction_price": 10,
+      "likes": 0
+    },
+    {
+      "id": 5,
+      "vehicle_brand": "Honda",
+      "picture": "images/honda_pilot.png",
+      "vehicle_model": "Pilot",
+      "description": "Descriptions of Pilot",
+      "buy_now_price": 170,
+      "starting_price": 100,
+      "min_incr": 5,
+      "auction_price": 100,
+      "likes": 0
+    },
+    {
+      "id": 6,
+      "vehicle_brand": "Honda",
+      "picture": "images/honda_civic.png",
+      "vehicle_model": "Civic",
+      "description": "Descriptions of Civic",
+      "buy_now_price": 15,
+      "starting_price": 5,
+      "min_incr": 1,
+      "auction_price": 15,
+      "likes": 0
+    },
+    {
+      "id": 7,
+      "vehicle_brand": "Honda",
+      "picture": "images/honda_accord.png",
+      "vehicle_model": "Accord",
+      "description": "Descriptions of Accord",
+      "buy_now_price": 200,
+      "starting_price": 110,
+      "min_incr": 6,
+      "auction_price": 110,
+      "likes": 0
+    },
+    {
+      "id": 8,
+      "vehicle_brand": "Mazda",
+      "picture": "images/mazda_3.png",
+      "vehicle_model": "3",
+      "description": "Descriptions of Mazda3",
+      "buy_now_price": 150,
+      "starting_price": 60,
+      "min_incr": 3,
+      "auction_price": 60,
+      "likes": 0
+    },
+    {
+      "id": 9,
+      "vehicle_brand": "Mazda",
+      "picture": "images/mazda_cx50.png",
+      "vehicle_model": "CX50",
+      "description": "Descriptions of CX50",
+      "buy_now_price": 400,
+      "starting_price": 150,
+      "min_incr": 20,
+      "auction_price": 150,
+      "likes": 0
+    }
+  ]
+}

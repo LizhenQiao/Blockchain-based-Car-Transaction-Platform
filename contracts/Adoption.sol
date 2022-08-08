@@ -9,12 +9,12 @@ contract Adoption {
         uint256 starting_price; // starting price
         uint256 min_incr; // minimum increment for a bid
         uint256 offer_price; // current price of item
+        // string picture;
     }
 
     address[16] public buyers; // array of ethereum addresses
     uint256 constant carCount = 10;
     uint256 public numOfPurchases = 0;
-    uint256[carCount] public arrayForItems;
     uint256 public itemId = 0;
     mapping(uint256 => Item) public vehicles; // item hash table
     mapping(uint256 => address) public highestOfferers; // highest bidders hash table
@@ -29,7 +29,7 @@ contract Adoption {
         uint256 starting_price,
         uint256 min_incr,
         uint256 offer_price
-    ) public {
+    ) public returns (uint256) {
         vehicles[itemId] = Item(
             vehicle_brand,
             vehicle_model,
@@ -38,23 +38,25 @@ contract Adoption {
             starting_price,
             min_incr,
             offer_price
+            // picture
         );
         highestOfferers[itemId] = address(0);
         likesForItems[itemId] = 0;
         itemId++;
+        return itemId;
     }
 
     constructor() public {
-        addItem("BMW", "M2", "need info here", 40, 20, 2, 20);
-        addItem("Mercedes", "GTR", "need info here", 400, 200, 20, 200);
-        addItem("Honda", "Civic Type-R", "need info here", 300, 150, 35, 150);
-        addItem("Volkswagen", "Golf gti", "need info here", 300, 150, 35, 150);
-        addItem("BMW", "M3", "need info here", 40, 20, 2, 20);
-        addItem("Mercedes", "c63", "need info here", 400, 200, 20, 200);
-        addItem("Honda", "s2000", "need info here", 300, 150, 35, 150);
-        addItem("Volkswagen", "Golf r", "need info here", 300, 150, 35, 150);
-        addItem("Ford", "f150", "need info here", 300, 150, 35, 150);
-        addItem("Ram", "1500", "need info here", 300, 150, 35, 150);
+        addItem("BMW", "M2", "need info here", 300, 150, 10, 150);
+        addItem("Mercedes", "GTR", "need info here", 200, 120, 8, 120);
+        addItem("Honda", "Civic Type-R", "need info here", 180, 100, 7, 100);
+        addItem("Volkswagen", "Golf gti", "need info here", 20, 10, 1, 10);
+        addItem("BMW", "M3", "need info here", 22, 10, 1, 10);
+        addItem("Mercedes", "c63", "need info here", 170, 100, 5, 100);
+        addItem("Honda", "s2000", "need info here", 15, 5, 1, 15);
+        addItem("Volkswagen", "Golf r", "need info here", 200, 110, 6, 110);
+        addItem("Ford", "f150", "need info here", 150, 60, 3, 60);
+        addItem("Ram", "1500", "need info here", 400, 150, 20, 150);
     }
 
     // Adopting a pet
@@ -71,7 +73,10 @@ contract Adoption {
     }
 
     function addLike(uint256 itemId) public returns (uint256) {
-        require(itemId >= 0 && itemId <= carCount, "Liked item does not exit.");
+        require(
+            itemId >= 0 && itemId <= carCount,
+            "Liked item does not exist."
+        );
         likesForItems[itemId] = likesForItems[itemId] + 1;
         return likesForItems[itemId];
     }
@@ -85,7 +90,10 @@ contract Adoption {
     }
 
     function getLikeById(uint256 itemId) public view returns (uint256) {
-        require(itemId >= 0 && itemId < carCount, "Get like item does not exist.");
+        require(
+            itemId >= 0 && itemId < carCount,
+            "Get like item does not exist."
+        );
         return likesForItems[itemId];
     }
 

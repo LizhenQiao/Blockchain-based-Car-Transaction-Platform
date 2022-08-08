@@ -7,8 +7,8 @@ App = {
   init: async function (obj) {
     $.getJSON("../cars.json", function (data) {
       console.log(obj);
-      var carRow = $("#carRow");
       var cardFrame = $("#cardFrame");
+      data = data.cars;
       for (i = 0; i < data.length; i++) {
         if (obj == null) {
           cardFrame.find(".panel-title").text(`Vehicle ${i + 1}`); // auction number as title
@@ -62,7 +62,6 @@ App = {
             cardFrame.find(".ipt-amt").attr("id", `input-amt-${data[i].id}`); // same as above for input amount
             cardFrame.find(".ipt-amt").attr("step", `${data[i].min_incr}`); // same as above for input amount
             cardFrame.find(".ipt-amt").attr("min", `${data[i].starting_price}`); // same as above for input amount
-            console.log(1);
             $(".card-area").append(cardFrame.html());
           }
         }
@@ -131,6 +130,7 @@ App = {
     $(document).on("click", ".btn-buy", App.handlePurchase);
     $(document).on("click", ".btn-submit", App.handleNewOffer);
     $(document).on("click", ".btn-like", App.handleLike);
+    $(document).on("submit", ".addnew-form", App.handleAddNew);
   },
 
   // Add like to one car
@@ -138,6 +138,7 @@ App = {
     event.preventDefault();
 
     var carId = parseInt($(event.target).data("id"));
+    // console.log(carId);
     var likeInstance;
 
     web3.eth.getAccounts(function (error, accounts) {
@@ -329,6 +330,48 @@ App = {
       })
       .catch(function (err) {
         console.log(err.message);
+      });
+  },
+
+  // Due to backend limit, maximum of adding is 10.
+  handleAddNew: function (event) {
+    event.preventDefault();
+    web3.eth.defaultAccount = web3.eth.accounts[0];
+    const data = new FormData(event.target);
+    var object = {};
+    data.forEach(function (value, key) {
+      object[key] = value;
+    });
+    const array = $("#picture").val().split("\\");
+    object["picture"] = "images/" + array[array.length - 1];
+    object["auction_price"] = parseInt(object["starting_price"]);
+    for (let key of ["buy_now_price", "starting_price", "min_incr"]) {
+      object[key] = parseInt(object[key]);
+    }
+    object["likes"] = 0;
+    $.getJSON("../cars.json", function (data) {
+      object["id"] = data.cars.length;
+    });
+    console.log(object);
+    App.contracts.Adoption.deployed()
+      .then(function (instance) {
+        adoptionInstance = instance;
+        return adoptionInstance.addItem(
+          object["vehicle_brand"],
+          object["vehicle_model"],
+          object["description"],
+          object["buy_now_price"],
+          object["starting_price"],
+          object["min_incr"],
+          object["starting_price"]
+        );
+      })
+      .then(async function (res) {
+        console.log(res);
+        return await axios.post("http://localhost:4000/cars", object);
+      })
+      .then(() => {
+        window.location.replace("index.html");
       });
   },
 };
