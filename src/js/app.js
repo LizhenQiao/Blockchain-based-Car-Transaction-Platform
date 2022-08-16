@@ -135,7 +135,8 @@ App = {
         App.markPurchase(),
         App.updateOfferPrice(),
         App.updateNumOfPurchase(),
-        App.updateHighestOfferer()
+        App.updateHighestOfferer(),
+        App.updateAllLikes()
       );
     });
 
@@ -197,22 +198,22 @@ App = {
       });
   },
 
-  // updateAllLikes: function () {
-  //   var offerInstance;
-  //   App.contracts.Adoption.deployed()
-  //     .then(function (instance) {
-  //       offerInstance = instance;
-  //       return offerInstance.getAllLikes.call();
-  //     })
-  //     .then(function (result) {
-  //       for (j = 0; j < result.length; j++) {
-  //         $(document).find(".likes").eq(j).text(`ALL Likes ${result[j]}`);
-  //       }
-  //     })
-  //     .catch(function (err) {
-  //       console.log(err.message);
-  //     });
-  // },
+  updateAllLikes: function () {
+    var offerInstance;
+    App.contracts.Adoption.deployed()
+      .then(function (instance) {
+        offerInstance = instance;
+        return offerInstance.getAllLikes.call();
+      })
+      .then(function (result) {
+        for (j = 0; j < result.length; j++) {
+          $(document).find(".likes").eq(j).text(`${result[j]} likes`);
+        }
+      })
+      .catch(function (err) {
+        console.log(err.message);
+      });
+  },
 
   markPurchase: function () {
     var adoptionInstance;
