@@ -412,6 +412,7 @@ App = {
     event.preventDefault();
 
     $(".cart-button").css("display", "none");
+    $(".cart-content").css("display", "block");
 
     let cartItem = $("#cartItem");
     console.log(App.cart);
@@ -423,6 +424,7 @@ App = {
     });
 
     setTimeout(() => {
+      $(".cart-content").empty();
       $(".cart-content").css("display", "none");
       $(".cart-button").css("display", "block");
     }, 5000);
