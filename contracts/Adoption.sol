@@ -157,7 +157,7 @@ contract Adoption {
         view
         returns (bool)
     {
-        if (_offerAmount > vehicles[_vehicleId].offer_price) return true;
+        if (_offerAmount > vehicles[_vehicleId].offer_price + vehicles[_vehicleId].min_incr) return true;
         else return false;
     }
 
